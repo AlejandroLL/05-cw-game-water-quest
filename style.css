@@ -17,26 +17,26 @@ Fonts:
 - Avenir
 
 */
-
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Proxima Nova, Avenir, sans-serif;
   margin: 0;
   padding: 30px;
-  background-color: #f0f0f0;
+  background-color: #2E9DF7;
   color: #333;
 }
 
 .container {
   max-width: 750px;
   margin: 50px auto;
-  background-color: #fff;
+  background-color: #FFC907;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 h1 {
@@ -63,7 +63,7 @@ h1 img {
   display: flex;
   justify-content: space-around;
   margin-bottom: 30px;
-  background-color: #f5f5f5;
+  background-color: #8BD1CB;
   padding: 15px 0;
   border-radius: 8px;
 }
@@ -84,7 +84,7 @@ h1 img {
 }
 
 .grid-cell {
-  background-color: #e8e8e8;
+  background-color: #FF902A;
   border-radius: 8px;
   aspect-ratio: 1;
   display: flex;
@@ -101,8 +101,9 @@ h1 img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
+  /*modified, original was 70px*/
+  width: 80%;
+  height: 80%;
   /* Ensure the wrapper is properly centered */
 }
 
@@ -130,7 +131,7 @@ h1 img {
 
 
 button {
-  background-color: #4CAF50;
+  background-color: #4FCB53;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -140,4 +141,154 @@ button {
   display: block;
   margin: 30px auto 0;
   transition: background-color 0.2s;
+}
+
+/* added styles */
+.end-game-overlay {
+  grid-column: 1 / -1; /* Stretch across all columns */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly see-through white */
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.win {
+  background-color: #159A48; /* Green for win */
+}
+.lose {
+  background-color: #F5402C; /* Red for lose */
+}
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.logo img {
+  height: 60px;
+  max-width: 100%;
+  height: auto;
+}
+
+.instructions {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.instructions-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px auto 0;
+  padding: 16px 20px;
+  background-color: #8BD1CB;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.instructions-panel[hidden] {
+  display: none !important;
+}
+.instructions-toggle[aria-expanded="true"] .instructions-icon {
+  transform: rotate(45deg);
+}
+.instructions-icon {
+  font-size: 28px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.instructions-panel {
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #8BD1CB;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.instructions-panel p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.instructions-panel p + p {
+  margin-top: 12px;
+}
+
+@media (max-width: 550px) {
+  .container {
+    margin: 40px auto;
+    padding: 30px;
+  }
+  
+  .game-grid {
+    gap: 10px;
+  }
+  .logo img {
+    height: 45px;
+  }
+
+  .instructions-toggle {
+    font-size: 18px;
+  }
+}
+@media (max-width: 450px) {
+  .container {
+    margin: 30px auto;
+    padding: 20px;
+  }
+  .game-instructions {
+    font-size: 16px;
+  }
+  
+  .stats p {
+    font-size: 16px;
+  }
+  .logo img {
+    height: 35px;
+  }
+
+  .instructions-toggle {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+
+  .instructions-panel p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 320px) {
+  /*adjust water quest containter*/
+  .container {
+    margin: 20px auto;
+    padding: 10px;
+  }
+  .game-instructions {
+    font-size: 14px;
+  }
+  
+  .stats p {
+    font-size: 14px;
+  }
+  /*adjust logo */
+  .logo{
+    margin-bottom: 10px;
+  }
+  .logo img {
+    height: 25px;
+  }
+
+  .instructions-toggle {
+    font-size: 15px;
+  }
+
+  .instructions-panel {
+    padding: 16px;
+  }
 }
